@@ -31,8 +31,8 @@ Métodos: Counter, Summary, Histogram, Gauge
 """
 
 # Define a counter for tracking HTTP requests
-models_count = Counter('models_execution_count', 'Model execution total count') # var.inc()
-flow_count = Counter('flow_categories_count', 'Flow categories total count') # var.inc()
+models_count = Counter('models_execution', 'Model execution total count') # var.inc()
+flow_count = Counter('flow_categories', 'Flow categories total count') # var.inc()
 inference_s_time = Summary("inference_summ", "Inference time - Summary") # var.observe(___)
 inference_h_time = Summary("inference_hist", "Inference time - Histogram") # var.observe(___)
 user_count = Gauge("user_online", "Total online users") # var.inc() or var.dec()
