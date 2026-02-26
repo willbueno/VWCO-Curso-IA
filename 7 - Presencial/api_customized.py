@@ -19,13 +19,24 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_classic.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
 
-from typing import List 
+from typing import List
+
+from fastapi.middleware.cors import CORSMiddleware
  
 nltk.download("punkt") 
 nltk.download("stopwords") 
  
 # Inicializa a aplicação FastAPI 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=("*"),
+    allow_credentials=True,
+    allow_methods=("*"),
+    allow_headers=("*"),
+)
 
 # Dicionário de fluxos de trabalho com múltiplas palavras-chave 
 fluxos = { 
